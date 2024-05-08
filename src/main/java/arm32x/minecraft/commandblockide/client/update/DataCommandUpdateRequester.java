@@ -2,6 +2,7 @@ package arm32x.minecraft.commandblockide.client.update;
 
 import static arm32x.minecraft.commandblockide.client.CommandChainTracer.isCommandBlock;
 import arm32x.minecraft.commandblockide.client.gui.screen.CommandBlockIDEScreen;
+import arm32x.minecraft.commandblockide.mixin.client.CommandBlockBlockEntityAccessor;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import java.util.HashMap;
 import java.util.Map;
@@ -86,7 +87,7 @@ public final class DataCommandUpdateRequester {
 			return false;
 		}
 
-		blockEntity.readNbt(tag, client.world.getRegistryManager());
+		((CommandBlockBlockEntityAccessor)blockEntity).invokeReadNbt(tag, client.world.getRegistryManager());
 //		blockEntity.setNeedsUpdatePacket(false);
 		if (client.currentScreen instanceof CommandBlockIDEScreen) {
 			((CommandBlockIDEScreen)client.currentScreen).update(position);
