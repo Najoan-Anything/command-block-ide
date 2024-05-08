@@ -3,6 +3,12 @@ package arm32x.minecraft.commandblockide.client.gui;
 import arm32x.minecraft.commandblockide.mixin.client.EditBoxAccessor;
 import arm32x.minecraft.commandblockide.mixin.client.TextFieldWidgetAccessor;
 import arm32x.minecraft.commandblockide.util.OrderedTexts;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.font.TextRenderer;
@@ -24,13 +30,6 @@ import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4f;
 import org.lwjgl.glfw.GLFW;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
 
 @Environment(EnvType.CLIENT)
 public class MultilineTextFieldWidget extends TextFieldWidget {
