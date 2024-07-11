@@ -72,7 +72,7 @@ public final class CommandBlockTypeButton extends IconButton implements Dirtyabl
 			idBuilder.append("side");
 		}
 		idBuilder.append(".png");
-		return new Identifier("minecraft", idBuilder.toString());
+		return Identifier.of("minecraft", idBuilder.toString());
 	}
 
 	@Override
@@ -93,12 +93,11 @@ public final class CommandBlockTypeButton extends IconButton implements Dirtyabl
 		Matrix4f matrix = context.getMatrices().peek().getPositionMatrix();
 		float x0 = (float)getX(), x1 = x0 + 16, y0 = (float)getY(), y1 = y0 + 16, z = 0;
 		float u0 = 0.0f, u1 = 1.0f, v0 = 0.0f, v1 = 0.25f;
-		BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
-		bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-		bufferBuilder.vertex(matrix, x0, y1, z).texture(u1, v0).next();
-		bufferBuilder.vertex(matrix, x1, y1, z).texture(u0, v0).next();
-		bufferBuilder.vertex(matrix, x1, y0, z).texture(u0, v1).next();
-		bufferBuilder.vertex(matrix, x0, y0, z).texture(u1, v1).next();
+		BufferBuilder bufferBuilder = Tessellator.getInstance().begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
+		bufferBuilder.vertex(matrix, x0, y1, z).texture(u1, v0);
+		bufferBuilder.vertex(matrix, x1, y1, z).texture(u0, v0);
+		bufferBuilder.vertex(matrix, x1, y0, z).texture(u0, v1);
+		bufferBuilder.vertex(matrix, x0, y0, z).texture(u1, v1);
 		var builtBuffer = bufferBuilder.end();
 		BufferRenderer.drawWithGlobalProgram(builtBuffer);
 

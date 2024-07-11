@@ -18,7 +18,7 @@ public final class SimpleIconButton extends IconButton {
 	public SimpleIconButton(int x, int y, String iconName, Tooltip tooltip, boolean drawsBackground, Consumer<SimpleIconButton> pressAction) {
 		super(x, y, 20, 20, 16, 16);
 		this.drawsBackground = drawsBackground;
-		this.texture = new Identifier("commandblockide", "textures/gui/icons/" + iconName + ".png");
+		this.texture = Identifier.of("commandblockide", "textures/gui/icons/" + iconName + ".png");
 		this.pressAction = pressAction;
 	}
 

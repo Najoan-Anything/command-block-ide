@@ -190,7 +190,7 @@ public final class MultilineCommandStorage implements Serializable {
 				}
 				boolean isSingleplayer = unpacker.unpackBoolean();
 				String world = unpacker.unpackString();
-				var identifier = new Identifier(unpacker.unpackString());
+				var identifier = Identifier.of(unpacker.unpackString());
 				int lineIndex = unpacker.unpackInt();
 				var location = new CommandFunctionLocation(isSingleplayer, world, identifier, lineIndex);
 

@@ -19,8 +19,8 @@ public final class CommandBlockTrackOutputButton extends IconButton implements D
 	@Override
 	protected Identifier getTexture() {
 		return trackingOutput
-			? new Identifier("minecraft", "textures/item/writable_book.png")
-			: new Identifier("minecraft", "textures/item/written_book.png");
+			? Identifier.of("minecraft", "textures/item/writable_book.png")
+			: Identifier.of("minecraft", "textures/item/written_book.png");
 	}
 
 	@Override

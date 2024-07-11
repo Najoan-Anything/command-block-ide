@@ -19,8 +19,8 @@ public final class CommandBlockAutoButton extends IconButton implements Dirtyabl
 	@Override
 	protected Identifier getTexture() {
 		return auto
-			? new Identifier("minecraft", "textures/item/gunpowder.png")
-			: new Identifier("minecraft", "textures/item/redstone.png");
+			? Identifier.of("minecraft", "textures/item/gunpowder.png")
+			: Identifier.of("minecraft", "textures/item/redstone.png");
 	}
 
 	@Override

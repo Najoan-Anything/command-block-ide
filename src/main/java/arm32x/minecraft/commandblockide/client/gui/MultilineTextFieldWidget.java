@@ -341,29 +341,29 @@ public class MultilineTextFieldWidget extends TextFieldWidget {
 
 		if (startY == endY) {
 			// Selection spans one line
-			vertexConsumer.vertex(matrix, endX, startY, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, startX, startY, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, startX, endY + lineHeight - 1, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, endX, endY + lineHeight - 1, 0.0f).color(r, g, b, a).next();
+			vertexConsumer.vertex(matrix, endX, startY, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, startX, startY, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, startX, endY + lineHeight - 1, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, endX, endY + lineHeight - 1, 0.0f).color(r, g, b, a);
 		} else {
 			// Selection spans two or more lines
-			vertexConsumer.vertex(matrix, rightEdge, startY, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, startX, startY, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, startX, startY + lineHeight, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, rightEdge, startY + lineHeight, 0.0f).color(r, g, b, a).next();
+			vertexConsumer.vertex(matrix, rightEdge, startY, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, startX, startY, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, startX, startY + lineHeight, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, rightEdge, startY + lineHeight, 0.0f).color(r, g, b, a);
 
 			if (!(startY - lineHeight == endY || endY - lineHeight == startY)) {
 				// Selection spans three or more lines
-				vertexConsumer.vertex(matrix, rightEdge, startY + lineHeight, 0.0f).color(r, g, b, a).next();
-				vertexConsumer.vertex(matrix, leftEdge, startY + lineHeight, 0.0f).color(r, g, b, a).next();
-				vertexConsumer.vertex(matrix, leftEdge, endY, 0.0f).color(r, g, b, a).next();
-				vertexConsumer.vertex(matrix, rightEdge, endY, 0.0f).color(r, g, b, a).next();
+				vertexConsumer.vertex(matrix, rightEdge, startY + lineHeight, 0.0f).color(r, g, b, a);
+				vertexConsumer.vertex(matrix, leftEdge, startY + lineHeight, 0.0f).color(r, g, b, a);
+				vertexConsumer.vertex(matrix, leftEdge, endY, 0.0f).color(r, g, b, a);
+				vertexConsumer.vertex(matrix, rightEdge, endY, 0.0f).color(r, g, b, a);
 			}
 
-			vertexConsumer.vertex(matrix, endX, endY, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, leftEdge, endY, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, leftEdge, endY + lineHeight - 1, 0.0f).color(r, g, b, a).next();
-			vertexConsumer.vertex(matrix, endX, endY + lineHeight - 1, 0.0f).color(r, g, b, a).next();
+			vertexConsumer.vertex(matrix, endX, endY, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, leftEdge, endY, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, leftEdge, endY + lineHeight - 1, 0.0f).color(r, g, b, a);
+			vertexConsumer.vertex(matrix, endX, endY + lineHeight - 1, 0.0f).color(r, g, b, a);
 		}
 
 		context.draw();
