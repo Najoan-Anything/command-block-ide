@@ -168,7 +168,7 @@ public class MultilineTextFieldWidget extends TextFieldWidget {
 			charIndex++;
 		}
 
-		setCursor(charIndex, false);
+		setCursor(charIndex, Screen.hasShiftDown());
     }
 
     @Override
